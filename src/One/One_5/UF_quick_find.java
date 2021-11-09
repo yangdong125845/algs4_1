@@ -42,6 +42,7 @@ public class UF_quick_find {
     }
 
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         int N = StdIn.readInt();
         UF_quick_find uf = new UF_quick_find(N);
         while (!StdIn.isEmpty()) {
@@ -49,10 +50,10 @@ public class UF_quick_find {
             int q = StdIn.readInt();
             if (uf.connected(p, q)) continue;
             uf.union(p, q);
-            StdOut.println(p + " " + q);
+        //    StdOut.println(p + " " + q);
         }
-
-        StdOut.println(uf.count() + " components");
+        long endTime = System.currentTimeMillis();
+        StdOut.println(uf.count() + " components  spend   :" +(endTime-startTime));
     }
 
 }

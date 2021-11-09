@@ -36,13 +36,12 @@ public class UF_quick_union {
         int pRoot = find(p);
         int qRoot = find(q);
         if (pRoot == qRoot) return;
-
         id[pRoot] = qRoot;
-
         count--;
     }
 
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         int N = StdIn.readInt();
         UF_quick_union uf = new UF_quick_union(N);
         while (!StdIn.isEmpty()) {
@@ -50,10 +49,10 @@ public class UF_quick_union {
             int q = StdIn.readInt();
             if (uf.connected(p, q)) continue;
             uf.union(p, q);
-            StdOut.println(p + " " + q);
+          //  StdOut.println(p + " " + q);
         }
-
-        StdOut.println(uf.count() + " components");
+        long endTime = System.currentTimeMillis();
+        StdOut.println(uf.count() + " components  spend   :" +(endTime-startTime));
     }
 
 }
